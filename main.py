@@ -1,18 +1,30 @@
 import discord
+import asyncio
 from discord.ext import *
 from discord.ext import commands
 from discord import Color
+from dotenv import load_dotenv
+from mcstatus import MinecraftServer
 import random
 import time
 import ffmpeg
+import os
 
+
+load_dotenv()
+TOKEN = os.getenv('DISCORD_TOKEN')
 
 client = commands.Bot(command_prefix = '!')
-
+server = MinecraftServer.lookup("188.34.196.6")
 @client.event
 async def on_ready():
     print("zbior gotowy")
-
+    while True:
+        await asyncio.sleep(5)
+        status = server.status()
+        await client.change_presence(activity=discord.Game(name=f"zbiór SMP: {status.players.online}/10"))
+        await asyncio.sleep(5)
+        await client.change_presence(activity=discord.Game(name="ip serwera mc: !ip"))
 
 @client.command(aliases=['zbior'])
 async def zbiór(ctx):
@@ -52,7 +64,7 @@ async def komendy(ctx):
     embed.add_field(name="!anime", value="wysyla dziewczynke anime (robie cos potrzebna komenda)", inline=False)
     embed.add_field(name="!dylemat", value="jakbys miał dylemat to zbiórbot pomoże ci wybrać czy coś", inline=False)
     embed.add_field(name="!senpai", value="wyświetla...", inline=False)
-    embed.add_field(name="!CBT", value="( ͡~ ͜ʖ ͡°)", inline=False)
+    embed.add_field(name="!ip", value="wyświetla ip serwera minecraft", inline=False)
     embed.set_footer(text=f"r {r}, g {g}, b {b}")
     await ctx.send(embed=embed)
 
@@ -66,8 +78,9 @@ async def anime(ctx):
 async def dylemat(ctx):
   await ctx.send(random.choice(["oczywistość", "a wiesz, że nie?", "jeszcze jak", "aczkolwiek tak", "nie.", "nieeeeeeeeeeeeeee"]))
 
-
-
+@client.command()
+async def ip(ctx):
+  await ctx.send('Nasze ip do zbiór SMP to: ```188.34.196.6```')
 
 @client.command()
 async def senpai(ctx):
@@ -77,41 +90,10 @@ async def senpai(ctx):
 
 
 
-@client.command()
-async def beemovie(ctx):
-  with open('jazz.txt') as plik:
-    for linia in plik:
-      await ctx.send(linia.strip().split())
-
-
-@client.command(aliases=['CBT'])
-async def cbt(ctx):
-    channel = ctx.author.voice.channel
-    await channel.connect()
-    channel = ctx.author.voice.channel
-    await channel.connect()
-    guild = ctx.guild
-    voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
-    audio_source = discord.FFmpegPCMAudio('cbt.mp3')
-    if not voice_client.is_playing():
-        voice_client.play(audio_source, after=None)
-
-    while voice_client.is_playing():
-        await asyncio.sleep(1)
-    else:
-        await asyncio.sleep(4) #
-        while voice_client.is_playing():
-            break
-        else:
-            await voice_client.disconnect()
-
-
-
-@client.command()
-async def top10najlepszerzeczypolska2021numer1(ctx):
-    await ctx.send('https://cdn.discordapp.com/attachments/763447893913763840/806786062453964870/avatar-damedane.mp4')
 
 
 
 
-client.run('NzkwMjExNzI5NDQzMTI3MzA3.X99UBQ.0y2IXIMv60B9ozAGcRw6ER-1CFA')
+
+
+client.run(TOKEN)
