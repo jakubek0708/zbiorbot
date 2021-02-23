@@ -89,11 +89,4 @@ async def senpai(ctx):
   await ctx.send(file=discord.File(str))
 
 
-
-
-
-
-
-
-
 client.run(TOKEN)
