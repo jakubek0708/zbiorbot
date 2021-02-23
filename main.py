@@ -1,5 +1,5 @@
 import discord
-import asyncio
+from asyncio import sleep
 from discord.ext import *
 from discord.ext import commands
 from discord import Color
@@ -7,7 +7,6 @@ from dotenv import load_dotenv
 from mcstatus import MinecraftServer
 import random
 import time
-import ffmpeg
 import os
 
 
