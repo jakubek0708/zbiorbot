@@ -65,6 +65,7 @@ async def komendy(ctx):
     embed.add_field(name="!senpai", value="wyświetla...", inline=False)
     embed.add_field(name="!ip", value="wyświetla ip serwera minecraft", inline=False)
     embed.add_field(name="!jd", value="jest dobrze :)))", inline=False)
+    embed.add_field(name="!oof", value="oof", inline=False)
     embed.set_footer(text=f"r {r}, g {g}, b {b}")
     await ctx.send(embed=embed)
 
@@ -90,6 +91,10 @@ async def husbando(ctx):
   liczba = random.randint(1, 10)
   str=f"tadek{liczba}.jpg"
   await ctx.send(file=discord.File(str))
+
+@client.command(aliases=['tymek'])
+async def oof(ctx):
+    await ctx.send('https://media.discordapp.net/attachments/722581350116360332/774297918701830154/image0.gif')
 
 
 client.run(TOKEN)
