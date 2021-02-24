@@ -32,6 +32,7 @@ async def on_ready():
         await client.change_presence(activity=discord.Game(name=f"zbiór SMP: {status.players.online}/10"))
         await asyncio.sleep(5)
         await client.change_presence(activity=discord.Game(name="ip serwera mc: !ip"))
+        await asyncio.sleep(5)
 
 @client.command(aliases=['zbior']) #inside joke command
 async def zbiór(ctx):
