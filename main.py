@@ -1,3 +1,4 @@
+#importing libraries
 import discord
 import asyncio
 from discord.ext import *
@@ -9,23 +10,29 @@ import random
 import time
 import os
 
-
+#discord token loading
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
+#defined client prefix
 client = commands.Bot(command_prefix = '!')
+
+#minecraft server lookup
 server = MinecraftServer.lookup("188.34.196.6")
-@client.event
+
+#events:
+
+@client.event #when bot is turned on
 async def on_ready():
     print("zbior gotowy")
-    while True:
+    while True: #minecraft status update
         await asyncio.sleep(5)
         status = server.status()
         await client.change_presence(activity=discord.Game(name=f"zbiór SMP: {status.players.online}/10"))
         await asyncio.sleep(5)
         await client.change_presence(activity=discord.Game(name="ip serwera mc: !ip"))
 
-@client.command(aliases=['zbior'])
+@client.command(aliases=['zbior']) #inside joke command
 async def zbiór(ctx):
     print(ctx)
     zbiory = ['zbior', 'zbiot', 'zboir', 'zboit','zboier','zboitr']
@@ -33,7 +40,7 @@ async def zbiór(ctx):
     await ctx.send(file=discord.File('zbior.png'))
 
 
-@client.command(aliases = ['8kula'])
+@client.command(aliases = ['8kula']) #command you can ask for something
 async def _8kula(ctx, *, question):
     odpowiedzi = ['Zapytaj Kubę on zawsze będzie wiedział',
                   'Nie wiem stary nie pytaj mnie',
@@ -49,7 +56,7 @@ async def _8kula(ctx, *, question):
     await ctx.send(f'Pytanie: {question}\nOdpowiedź: {random.choice(odpowiedzi)}')
 
 
-@client.command()
+@client.command() #shows commands
 async def komendy(ctx):
 
     r = random.randint(0, 255)
@@ -69,32 +76,31 @@ async def komendy(ctx):
     embed.set_footer(text=f"r {r}, g {g}, b {b}")
     await ctx.send(embed=embed)
 
-@client.command()
+@client.command() #inside joke command
 async def anime(ctx):
     await ctx.send('https://media.discordapp.net/attachments/722581350116360332/774297918701830154/image0.gif')
     await ctx.send(file=discord.File('cutesmoooth.mp4'))
 
-@client.command(aliases=['JD'])
+@client.command(aliases=['JD']) #inside joke
 async def jd(ctx):
     await ctx.send(file=discord.File('jd.png'))
 
-@client.command()
+@client.command() #command you can ask for something
 async def dylemat(ctx):
   await ctx.send(random.choice(["oczywistość", "a wiesz, że nie?", "jeszcze jak", "aczkolwiek tak", "nie.", "nieeeeeeeeeeeeeee"]))
 
-@client.command()
+@client.command() #shows ip for minecraft server
 async def ip(ctx):
   await ctx.send('Nasze ip do zbiór SMP to: ```188.34.196.6```')
 
-@client.command()
+@client.command() #command made for my friend it displays legoshis photos (gave me nightmares)
 async def husbando(ctx):
   liczba = random.randint(1, 10)
-  str=f"tadek{liczba}.jpg"
-  await ctx.send(file=discord.File(str))
+  photo=f"legoshiphotots/tadek{liczba}.jpg"
+  await ctx.send(file=discord.File(photo))
 
-@client.command(aliases=['tymek'])
+@client.command(aliases=['tymek']) #made for my friend
 async def oof(ctx):
     await ctx.send('https://tenor.com/view/roblox-fortnite-dance-default-memes-cool-gif-12661768')
 
-
-client.run(TOKEN)
+client.run(TOKEN) #making bot run with command
