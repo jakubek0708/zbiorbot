@@ -79,7 +79,7 @@ async def komendy(ctx):
 @client.command() #you can make bot say something
 async def say(ctx, *, message):
     await ctx.send(message)
-    await ctx.delete()
+    await ctx.message.delete()
 
 @client.command() #inside joke command
 async def anime(ctx):
