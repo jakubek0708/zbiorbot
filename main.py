@@ -118,8 +118,7 @@ async def cbt(ctx):
     audio_source = discord.FFmpegPCMAudio('/opt/zbiorbot/cbt.mp3')
     channel = ctx.author.voice.channel
     await channel.connect()
-    if not voice_client.is_playing():
-        voice_client.play(audio_source, after=None)
+    voice_client.play(audio_source, after=None)
     while voice_client.is_playing():
         if not voice_client.is_playing():
             await ctx.voice_client.disconnect()
