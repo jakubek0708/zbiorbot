@@ -37,7 +37,7 @@ async def zbiór(ctx):
     print(ctx)
     zbiory = ['zbior', 'zbiot', 'zboir', 'zboit','zboier','zboitr']
     await ctx.send(random.choice(zbiory))
-    await ctx.send(file=discord.File('zbior.png'))
+    await ctx.send(file=discord.File('/opt/zbiorbot/zbior.png'))
 
 
 @client.command(aliases = ['8kula']) #command you can ask for something
@@ -69,7 +69,7 @@ async def komendy(ctx):
     embed.add_field(name="!zbiór", value="bezuzyteczna komenda smierdzicie", inline=False)
     embed.add_field(name="!anime", value="wysyla dziewczynke anime (robie cos potrzebna komenda)", inline=False)
     embed.add_field(name="!dylemat", value="jakbys miał dylemat to zbiórbot pomoże ci wybrać czy coś", inline=False)
-    embed.add_field(name="!senpai", value="wyświetla...", inline=False)
+    embed.add_field(name="!husbando", value="wyświetla...", inline=False)
     embed.add_field(name="!ip", value="wyświetla ip serwera minecraft", inline=False)
     embed.add_field(name="!jd", value="jest dobrze :)))", inline=False)
     embed.add_field(name="!oof", value="oof", inline=False)
@@ -84,11 +84,11 @@ async def say(ctx, *, message):
 @client.command() #inside joke command
 async def anime(ctx):
     await ctx.send('https://media.discordapp.net/attachments/722581350116360332/774297918701830154/image0.gif')
-    await ctx.send(file=discord.File('cutesmoooth.mp4'))
+    await ctx.send(file=discord.File('/opt/zbiorbot/cutesmoooth.mp4'))
 
 @client.command(aliases=['JD']) #inside joke
 async def jd(ctx):
-    await ctx.send(file=discord.File('jd.png'))
+    await ctx.send(file=discord.File('/opt/zbiorbot/jd.png'))
 
 @client.command() #command you can ask for something
 async def dylemat(ctx):
@@ -101,7 +101,7 @@ async def ip(ctx):
 @client.command() #command made for my friend it displays legoshis photos (gave me nightmares)
 async def husbando(ctx):
   liczba = random.randint(1, 10)
-  photo=f"legoshiphotots/tadek{liczba}.jpg"
+  photo=f"/opt/zbiorbot/legoshiphotots/tadek{liczba}.jpg"
   await ctx.send(file=discord.File(photo))
 
 @client.command(aliases=['tymek']) #made for my friend
