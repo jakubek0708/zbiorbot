@@ -116,12 +116,8 @@ async def cbt(ctx):
     discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
     voice_client = discord.VoiceClient
     audio_source = discord.FFmpegPCMAudio('/opt/zbiorbot/cbt.mp3')
-    if not voice_client.is_connected():
-        channel = ctx.author.voice.channel
-        await channel.connect()
-    else:
-        ctx.send('JUŻ ROBIĘ COCK AND BALL TORTURE PAJACU')
-
+    channel = ctx.author.voice.channel
+    await channel.connect()
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
     while voice_client.is_playing():
