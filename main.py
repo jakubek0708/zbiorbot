@@ -111,10 +111,21 @@ async def oof(ctx):
 
 @client.command(aliases=['CBT'])
 async def cbt(ctx):
+
     guild = ctx.guild
     voice_client: discord.VoiceClient = discord.utils.get(client.voice_clients, guild=guild)
     audio_source = discord.FFmpegPCMAudio('/opt/zbiorbot/cbt.mp3')
+    if not VoiceClient.is_connected():
+        channel = ctx.author.voice.channel
+        await channel.connect()
+    else:
+        ctx.send('JUŻ ROBIĘ COCK AND BALL TORTURE PAJACU')
+
     if not voice_client.is_playing():
         voice_client.play(audio_source, after=None)
+    while voice_client.is_playing():
+        if not voice_client.is_playing():
+            await ctx.voice_client.disconnect()
+
 
 client.run(TOKEN) #making bot run with command
