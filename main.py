@@ -94,7 +94,7 @@ async def husbando(ctx):
 
 @client.command(aliases=['tymek'])
 async def oof(ctx):
-    await ctx.send('https://media.discordapp.net/attachments/722581350116360332/774297918701830154/image0.gif')
+    await ctx.send('https://tenor.com/view/roblox-fortnite-dance-default-memes-cool-gif-12661768')
 
 
 client.run(TOKEN)
