@@ -76,6 +76,11 @@ async def komendy(ctx):
     embed.set_footer(text=f"r {r}, g {g}, b {b}")
     await ctx.send(embed=embed)
 
+@client.command() #you can make bot say something
+async def say(ctx, *, message):
+    await ctx.send(message)
+    await ctx.delete()
+
 @client.command() #inside joke command
 async def anime(ctx):
     await ctx.send('https://media.discordapp.net/attachments/722581350116360332/774297918701830154/image0.gif')
