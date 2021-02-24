@@ -109,5 +109,6 @@ async def husbando(ctx):
 async def oof(ctx):
     await ctx.send('https://tenor.com/view/roblox-fortnite-dance-default-memes-cool-gif-12661768')
 
+#cbt command maybe soon
 
 client.run(TOKEN) #making bot run with command
