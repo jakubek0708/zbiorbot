@@ -64,6 +64,7 @@ async def komendy(ctx):
     embed.add_field(name="!dylemat", value="jakbys miał dylemat to zbiórbot pomoże ci wybrać czy coś", inline=False)
     embed.add_field(name="!senpai", value="wyświetla...", inline=False)
     embed.add_field(name="!ip", value="wyświetla ip serwera minecraft", inline=False)
+    embed.add_field(name="!jd", value="jest dobrze :)))", inline=False)
     embed.set_footer(text=f"r {r}, g {g}, b {b}")
     await ctx.send(embed=embed)
 
