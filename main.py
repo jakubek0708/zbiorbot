@@ -72,6 +72,9 @@ async def anime(ctx):
     await ctx.send('https://media.discordapp.net/attachments/722581350116360332/774297918701830154/image0.gif')
     await ctx.send(file=discord.File('cutesmoooth.mp4'))
 
+@client.command(aliases=['JD'])
+async def jd(ctx):
+    await ctx.send(file=discord.File('jd.png'))
 
 @client.command()
 async def dylemat(ctx):
@@ -82,7 +85,7 @@ async def ip(ctx):
   await ctx.send('Nasze ip do zbiór SMP to: ```188.34.196.6```')
 
 @client.command()
-async def senpai(ctx):
+async def husbando(ctx):
   liczba = random.randint(1, 10)
   str=f"tadek{liczba}.jpg"
   await ctx.send(file=discord.File(str))
