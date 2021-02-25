@@ -95,7 +95,7 @@ async def jd(ctx):
 
 @client.command() #command you can ask for something
 async def dylemat(ctx):
-  await ctx.send(random.choice(["oczywistość", "a wiesz, że nie?", "jeszcze jak", "aczkolwiek tak", "nie.", "nieeeeeeeeeeeeeee"]))
+  await ctx.send(random.choice(["oczywistość", "a wiesz, że nie?", "jeszcze jak", "aczkolwiek tak", "nie.", "nieeeeeeeeeeeeeee", "mhm", "nieprawdanie", "tak to prawda zgadzam się z tym w 100% prawda tak", "nie mogę się z tym zgodzić niestety"]))
 
 @client.command() #shows ip for minecraft server
 async def ip(ctx):
