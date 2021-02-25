@@ -99,7 +99,7 @@ async def dylemat(ctx):
 
 @client.command() #shows ip for minecraft server
 async def ip(ctx):
-  await ctx.send('Nasze ip do zbiór SMP to: ```zbior.ga```')
+  await ctx.send('Nasze ip do zbiór SMP to: ```188.34.196.6```')
 
 @client.command() #command made for my friend it displays legoshis photos (gave me nightmares)
 async def husbando(ctx):
