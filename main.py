@@ -103,9 +103,14 @@ async def ip(ctx):
 
 @client.command() #command made for my friend it displays legoshis photos (gave me nightmares)
 async def husbando(ctx):
-  liczba = random.randint(1, 10)
-  photo=f"/opt/zbiorbot/legoshiphotots/tadek{liczba}.jpg"
-  await ctx.send(file=discord.File(photo))
+  liczba = random.randint(1, 11)
+  if liczba < 11:
+
+      photo=f"/opt/zbiorbot/legoshiphotots/tadek{liczba}.jpg"
+      await ctx.send(file=discord.File(photo))
+  else:
+      await ctx.send('https://c.tenor.com/9wJRnApQsmYAAAAM/legoshi.gif')
+
 
 @client.command(aliases=['tymek']) #made for my friend
 async def oof(ctx):
