@@ -96,13 +96,15 @@ async def jd(ctx):
 @client.command() #command you can ask for something
 async def dylemat(ctx, *, message):
   #no_yes[0] == no answers, no_yes[1] == yes answers
+
   no_yes = [["nie mogę się z tym zgodzić niestety", "nieprawdanie", "nie.", "nieeeeeeeeeeeeeee", "a wiesz, że nie?"], ["oczywistość", "jeszcze jak", "aczkolwiek tak", "mhm", "tak to prawda zgadzam się z tym w 100% prawda tak"]]
-  if not "Brawl Stars" in messsage or not "Brawl" in message or not "brawl stars" in message: #zbiorbot hate brawlstars
+  if not "Brawl Stars" in message and not "Brawl" in message and not "brawl stars" in message: #zbiorbot hate brawlstars
     no_or_yes_list = random.choice(no_yes) #choosing random list
     await ctx.send(random.choice(no_or_yes_list)) #choosing random thing from that list
-  else:
-      await ctx.send(random.choice(no_yes[0]))
 
+  else:
+    await ctx.send(random.choice(no_yes[0]))
+    await ctx.send("BRAWL STARS DETECTED")
 
 @client.command() #shows ip for minecraft server
 async def ip(ctx):
