@@ -104,7 +104,6 @@ async def dylemat(ctx, *, message):
 
   else:
     await ctx.send(random.choice(no_yes[0]))
-    await ctx.send("BRAWL STARS DETECTED")
 
 @client.command() #shows ip for minecraft server
 async def ip(ctx):
