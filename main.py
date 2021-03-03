@@ -90,8 +90,8 @@ async def say(ctx, *, message):
 async def anime(ctx):
     await ctx.send('https://media.discordapp.net/attachments/722581350116360332/774297918701830154/image0.gif')
     await ctx.send(file=discord.File('/opt/zbiorbot/cutesmoooth.mp4'))
-    test.testmodule(ctx)
-    
+    await test.testmodule(ctx)
+
 @client.command(aliases=['JD']) #inside joke
 async def jd(ctx):
     await ctx.send(file=discord.File('/opt/zbiorbot/jd.png'))

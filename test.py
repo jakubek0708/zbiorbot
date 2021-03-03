@@ -1,2 +1,2 @@
 def testmodule(ctx):
-    await ctx.send("DZIAŁA LFEKLSGEKSLGK")
+    ctx.send("DZIAŁA LFEKLSGEKSLGK")
