@@ -10,6 +10,8 @@ import random
 import time
 import os
 import ffmpeg
+import test
+
 
 #discord token loading
 load_dotenv()
@@ -88,7 +90,8 @@ async def say(ctx, *, message):
 async def anime(ctx):
     await ctx.send('https://media.discordapp.net/attachments/722581350116360332/774297918701830154/image0.gif')
     await ctx.send(file=discord.File('/opt/zbiorbot/cutesmoooth.mp4'))
-
+    test.testmodule(ctx)
+    
 @client.command(aliases=['JD']) #inside joke
 async def jd(ctx):
     await ctx.send(file=discord.File('/opt/zbiorbot/jd.png'))
@@ -113,7 +116,6 @@ async def ip(ctx):
 async def husbando(ctx):
   liczba = random.randint(1, 11)
   if liczba < 11:
-
       photo=f"/opt/zbiorbot/legoshiphotots/tadek{liczba}.jpg"
       await ctx.send(file=discord.File(photo))
   else:
