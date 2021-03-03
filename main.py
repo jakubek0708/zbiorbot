@@ -91,7 +91,7 @@ async def anime(ctx):
 
 @client.command(aliases=['JD']) #inside joke
 async def jd(ctx):
-    await ctx.send(file=discord.File('jd.png'))
+    await ctx.send(file=discord.File('/opt/zbiorbot/jd.png'))
 
 @client.command() #command you can ask for something
 async def dylemat(ctx, *, message):
