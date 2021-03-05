@@ -91,6 +91,7 @@ async def say(ctx, *, message):
         await ctx.message.delete()
         await ctx.send(message)
     else:
+        await ctx.message.delete()
         await ctx.send("Tak to prawda jebie brawl stars B)")
 
 @client.command() #inside joke command
