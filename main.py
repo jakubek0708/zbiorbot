@@ -23,6 +23,10 @@ client = commands.Bot(command_prefix = '!')
 #minecraft server lookup
 server = MinecraftServer.lookup("188.34.196.6")
 
+#brawl stars check
+def notbrawlstarscheck(message):
+    return not "Brawl Stars" in message and not "Brawl" in message and not "brawl stars" in message
+
 #events:
 
 @client.event #when bot is turned on
@@ -83,8 +87,11 @@ async def komendy(ctx):
 
 @client.command() #you can make bot say something
 async def say(ctx, *, message):
-    await ctx.message.delete()
-    await ctx.send(message)
+    if notbrawlstarscheck(message):
+        await ctx.message.delete()
+        await ctx.send(message)
+    else:
+        await ctx.send("Tak to prawda jebie brawl stars B)")
 
 @client.command() #inside joke command
 async def anime(ctx):
@@ -101,7 +108,7 @@ async def dylemat(ctx, *, message):
   #no_yes[0] == no answers, no_yes[1] == yes answers
 
   no_yes = [["nie mogę się z tym zgodzić niestety", "nieprawdanie", "nie.", "nieeeeeeeeeeeeeee", "a wiesz, że nie?"], ["oczywistość", "jeszcze jak", "aczkolwiek tak", "mhm", "tak to prawda zgadzam się z tym w 100% prawda tak"]]
-  if not "Brawl Stars" in message and not "Brawl" in message and not "brawl stars" in message: #zbiorbot hate brawlstars
+  if notbrawlstarscheck(message): #zbiorbot hate brawlstars
     no_or_yes_list = random.choice(no_yes) #choosing random list
     await ctx.send(random.choice(no_or_yes_list)) #choosing random thing from that list
 
