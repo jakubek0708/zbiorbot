@@ -10,8 +10,6 @@ import random
 import time
 import os
 import ffmpeg
-import test
-
 
 #discord token loading
 load_dotenv()
@@ -25,7 +23,7 @@ server = MinecraftServer.lookup("188.34.196.6")
 
 #brawl stars check
 def notbrawlstarscheck(message):
-    return not "Brawl Stars" in message and not "Brawl" in message and not "brawl stars" in message
+    return not "brawl stars" in messsage.lower()
 
 #events:
 
