@@ -23,7 +23,7 @@ server = MinecraftServer.lookup("188.34.196.6")
 
 #brawl stars check
 def notbrawlstarscheck(message):
-    return not "brawl stars" in messsage.lower()
+    return not "brawl stars" in message.lower()
 
 #events:
 
