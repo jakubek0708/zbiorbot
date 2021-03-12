@@ -48,7 +48,7 @@ async def zbiór(ctx):
 
 @client.command()
 async def ping(ctx): #ping command
-    await ctx.send("@zbiórbot#4378")
+    await ctx.send('<@790211729443127307>')
 
 @client.command(aliases = ['8kula']) #command you can ask for something
 async def _8kula(ctx, *, question):
