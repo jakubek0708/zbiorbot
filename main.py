@@ -22,7 +22,7 @@ client = commands.Bot(command_prefix = '!')
 server = MinecraftServer.lookup("188.34.196.6")
 
 #brawl stars check
-def notbrawlstarscheck(message):
+def not_brawl_stars_check(message):
     return not "brawl stars" in message.lower()
 
 #events:
@@ -46,6 +46,9 @@ async def zbiór(ctx):
     await ctx.send(random.choice(zbiory))
     await ctx.send(file=discord.File('/opt/zbiorbot/zbior.png'))
 
+@client.command()
+async def ping(ctx): #ping command
+    ctx.send("@zbiórbot#4378")
 
 @client.command(aliases = ['8kula']) #command you can ask for something
 async def _8kula(ctx, *, question):
@@ -80,12 +83,13 @@ async def komendy(ctx):
     embed.add_field(name="!ip", value="wyświetla ip serwera minecraft", inline=False)
     embed.add_field(name="!jd", value="jest dobrze :)))", inline=False)
     embed.add_field(name="!oof", value="oof", inline=False)
+    embed.add_field(name="!ping", value="pingje mnie xddddd", inline=False)
     embed.set_footer(text=f"r {r}, g {g}, b {b}")
     await ctx.send(embed=embed)
 
 @client.command() #you can make bot say something
 async def say(ctx, *, message):
-    if notbrawlstarscheck(message):
+    if not_brawl_stars_check(message):
         await ctx.message.delete()
         await ctx.send(message)
     else:
@@ -107,7 +111,7 @@ async def dylemat(ctx, *, message):
   #no_yes[0] == no answers, no_yes[1] == yes answers
 
   no_yes = [["nie mogę się z tym zgodzić niestety", "nieprawdanie", "nie.", "nieeeeeeeeeeeeeee", "a wiesz, że nie?"], ["oczywistość", "jeszcze jak", "aczkolwiek tak", "mhm", "tak to prawda zgadzam się z tym w 100% prawda tak"]]
-  if notbrawlstarscheck(message): #zbiorbot hate brawlstars
+  if not_brawl_stars_check(message): #zbiorbot hate brawlstars
     no_or_yes_list = random.choice(no_yes) #choosing random list
     await ctx.send(random.choice(no_or_yes_list)) #choosing random thing from that list
 
