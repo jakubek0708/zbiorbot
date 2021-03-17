@@ -39,6 +39,10 @@ async def on_ready():
         await asyncio.sleep(5)
         await client.change_presence(activity=discord.Game(name="komendy: !komendy"))
 
+@client.event
+async def on_message(self, message):
+    pass
+    
 @client.command(aliases=['zbior']) #inside joke command
 async def zbiór(ctx):
     print(ctx)
@@ -51,7 +55,7 @@ async def ping(ctx): #ping command
     await ctx.send('<@790211729443127307>')
 
 @client.command(aliases = ['8kula']) #command you can ask for something
-async def _8kula(ctx, *, question):
+async def _8kula(ctx, question):
     odpowiedzi = ['Zapytaj Kubę on zawsze będzie wiedział',
                   'Nie wiem stary nie pytaj mnie',
                   'Powiedz skąd miałbym mieć na to odpowiedź',
