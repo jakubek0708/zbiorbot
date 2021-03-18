@@ -5,7 +5,7 @@ from discord.ext import *
 from discord.ext import commands
 from discord import Color
 from dotenv import load_dotenv
-from mcstatus import MinecraftServer
+# from mcstatus import MinecraftServer
 import random
 import time
 import os
@@ -19,7 +19,7 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 client = commands.Bot(command_prefix = '!')
 
 #minecraft server lookup
-server = MinecraftServer.lookup("188.34.196.6")
+# server = MinecraftServer.lookup("188.34.196.6")
 
 #brawl stars check
 def not_brawl_stars_check(message):
@@ -33,10 +33,10 @@ async def on_ready():
     await client.change_presence(activity=discord.Game(name="komendy: !komendy"))
 
 @client.event
-async def on_message(ctx):
-    await ctx.send("dużo sex")
-
-    await client.process_commands(ctx)
+async def on_message(message):
+    if "sex" in message.content:
+        await message.delete()
+    await client.process_commands(message)
 
 @client.command(aliases=['zbior']) #inside joke command
 async def zbiór(ctx):
