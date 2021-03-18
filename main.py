@@ -43,8 +43,8 @@ async def on_ready():
 async def on_message(ctx):
     ctx.send("dużo sex")
 
-    await bot.process_commands(ctx)
-    
+    await client.process_commands(ctx)
+
 @client.command(aliases=['zbior']) #inside joke command
 async def zbiór(ctx):
     print(ctx)
