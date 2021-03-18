@@ -41,7 +41,7 @@ async def on_ready():
 
 @client.event
 async def on_message(ctx):
-    ctx.send("dużo sex")
+    await ctx.send("dużo sex")
 
     await client.process_commands(ctx)
 
