@@ -39,10 +39,6 @@ async def on_ready():
         await asyncio.sleep(5)
         await client.change_presence(activity=discord.Game(name="komendy: !komendy"))
 
-@client.event
-async def on_message(self, message):
-    await bot.process_commands(message)
-    pass
 
 @client.command(aliases=['zbior']) #inside joke command
 async def zbiór(ctx):
