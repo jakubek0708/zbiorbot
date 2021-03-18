@@ -30,14 +30,7 @@ def not_brawl_stars_check(message):
 @client.event #when bot is turned on
 async def on_ready():
     print("zbior gotowy")
-    while True: #minecraft status update
-        await asyncio.sleep(5)
-        status = server.status()
-        await client.change_presence(activity=discord.Game(name=f"zbiór SMP: {status.players.online}/10"))
-        await asyncio.sleep(5)
-        await client.change_presence(activity=discord.Game(name="ip serwera mc: !ip"))
-        await asyncio.sleep(5)
-        await client.change_presence(activity=discord.Game(name="komendy: !komendy"))
+    await client.change_presence(activity=discord.Game(name="komendy: !komendy"))
 
 @client.event
 async def on_message(ctx):
