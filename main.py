@@ -41,8 +41,9 @@ async def on_ready():
 
 @client.event
 async def on_message(self, message):
-    pass
     await bot.process_commands(message)
+    pass
+
 @client.command(aliases=['zbior']) #inside joke command
 async def zbiór(ctx):
     print(ctx)
