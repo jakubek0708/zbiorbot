@@ -167,4 +167,8 @@ async def python(ctx, *, message):
         except:
             await ctx.send("Wpisałeś coś źle wpisz ```!python help``` po więcej informacji :DD")
 
+@client.command()
+async def hentai(ctx, *, message):
+    await ctx.send(f"https://nhentai.to/g/{message}")
+
 client.run(TOKEN) #making bot run with command
