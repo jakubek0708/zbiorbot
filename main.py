@@ -34,11 +34,11 @@ async def on_ready():
     print("zbior gotowy")
     await client.change_presence(activity=discord.Game(name="komendy: !komendy"))
 
-@client.event
-async def on_message(message):
-    if str(message.author.id) == '823232243094388746': #yeah legoshi 
-        await message.delete()
-    await client.process_commands(message)
+# @client.event
+# async def on_message(message):
+#     if str(message.author.id) == '823232243094388746': #yeah legoshi
+#         await message.delete()
+#     await client.process_commands(message)
 
 @client.command(aliases=['zbior']) #inside joke command
 async def zbiór(ctx):
