@@ -85,7 +85,7 @@ async def komendy(ctx):
     embed.add_field(name="!jd", value="jest dobrze :)))", inline=False)
     embed.add_field(name="!oof", value="oof", inline=False)
     embed.add_field(name="!ping", value="pingje mnie xddddd", inline=False)
-    embed.add_field(name="!python", value="compiler pythona ```!python help``` po więcej informacji", inline=False)
+    embed.add_field(name="!python", value="compiler pythona \"!python help\" po więcej informacji", inline=False)
     embed.set_footer(text=f"r {r}, g {g}, b {b}")
     await ctx.send(embed=embed)
 
