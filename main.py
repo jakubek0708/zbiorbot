@@ -34,11 +34,21 @@ async def on_ready():
     print("zbior gotowy")
     await client.change_presence(activity=discord.Game(name="komendy: !komendy"))
 
-# @client.event
+# @client.event #(usuwanie)
 # async def on_message(message):
 #     if str(message.author.id) == '823232243094388746': #yeah legoshi
 #         await message.delete()
 #     await client.process_commands(message)
+
+@client.event
+async def on_message(message):
+    channel = client.get_channel(823521240156340274)
+    zbior = client.get_channel(763447893913763840)
+    if str(message.channel.id) != '823521240156340274':
+        await channel.send(f"{message.author}: {message.content}")
+    elif str(message.author.id) != '790211729443127307':
+        await zbior.send(f"ToXic: {message}")
+    await client.process_commands(message)
 
 @client.command(aliases=['zbior']) #inside joke command
 async def zbiór(ctx):
@@ -170,5 +180,11 @@ async def python(ctx, *, message):
 @client.command()
 async def hentai(ctx, *, message):
     await ctx.send(f"https://nhentai.to/g/{message}")
+
+@client.command()
+async def remote(ctx, *, message):
+    channel = client.get_channel(763447893913763840)
+    if str(ctx.message.author) == 'ToXic#9997':
+        await channel.send(message)
 
 client.run(TOKEN) #making bot run with command
