@@ -47,7 +47,8 @@ async def on_message(message):
     if str(message.channel.id) != '823521240156340274':
         await channel.send(f"{message.author}: {message.content}")
     elif str(message.author.id) != '790211729443127307':
-        await zbior.send(f"ToXic: {message}")
+        await message.delete()
+        await zbior.send(f"ToXic: {message.content}")
     await client.process_commands(message)
 
 @client.command(aliases=['zbior']) #inside joke command
