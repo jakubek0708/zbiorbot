@@ -40,30 +40,16 @@ async def on_ready():
 #         await message.delete()
 #     await client.process_commands(message)
 
-remote = False
 @client.event
 async def on_message(message):
-    if remote:
-        channel = client.get_channel(823521240156340274)
-        zbior = client.get_channel(763447893913763840)
-        if str(message.channel.id) != '823521240156340274':
-            await channel.send(f"{message.author}: {message.content}")
-        elif str(message.author.id) != '790211729443127307':
-            await message.delete()
-            await zbior.send(f"ToXic: {message.content}")
-        await client.process_commands(message)
-
-@client.command()
-async def remote(ctx, *, message):
-    global remote
-    if message == 'on':
-        remote = True
-    elif message == 'off':
-        remote = False
-    elif message == 'status':
-        await ctx.send(f'remote is set to: {remote}')
-    else:
-        await ctx.send('wrong value')
+    channel = client.get_channel(823521240156340274)
+    zbior = client.get_channel(763447893913763840)
+    if str(message.channel.id) != '823521240156340274':
+        await channel.send(f"{message.author}: {message.content}")
+    elif str(message.author.id) != '790211729443127307':
+        await message.delete()
+        await zbior.send(f"ToXic: {message.content}")
+    await client.process_commands(message)
 
 @client.command(aliases=['zbiór']) #inside joke command
 async def zbior(ctx):
@@ -196,5 +182,10 @@ async def python(ctx, *, message):
 async def hentai(ctx, *, message):
     await ctx.send(f"https://nhentai.to/g/{message}")
 
+@client.command()
+async def remote(ctx, *, message):
+    channel = client.get_channel(763447893913763840)
+    if str(ctx.message.author) == 'ToXic#9997':
+        await channel.send(message)
 
 client.run(TOKEN) #making bot run with command
