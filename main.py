@@ -96,7 +96,6 @@ async def komendy(ctx):
     embed.add_field(name="!jd", value="jest dobrze :)))", inline=False)
     embed.add_field(name="!oof", value="oof", inline=False)
     embed.add_field(name="!ping", value="pingje mnie xddddd", inline=False)
-    embed.add_field(name="!python", value="compiler pythona \"!python help\" po więcej informacji", inline=False)
     embed.set_footer(text=f"r {r}, g {g}, b {b}")
     await ctx.send(embed=embed)
 
@@ -156,27 +155,6 @@ def protection(message):
         return [True, 'while']
     else:
         return [False]
-@client.command() #python commands execution
-async def python(ctx, *, message):
-    if message == 'help':
-        await ctx.send(f'aby użyć komendy ```!python``` zaraz po niej napisz swój kod, możesz go napisać w tych dziwnych takich skośnych ```tu``` no i git :)))')
-    elif protection(message)[0]:
-        await ctx.send(f'nie wolno tak robić chodzi o: {protection(message)[1]}')
-    else:
-        try:
-            if '```' in message:
-                func_str = message[3:-3]
-            else:
-                func_str = message
-
-            stdout = io.StringIO()
-            with redirect_stdout(stdout):
-                exec(func_str)
-
-            out = stdout.getvalue()
-            await ctx.send(f'Output: {out}')
-        except:
-            await ctx.send("Wpisałeś coś źle wpisz ```!python help``` po więcej informacji :DD")
 
 @client.command()
 async def hentai(ctx, *, message):
