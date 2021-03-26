@@ -148,14 +148,6 @@ async def husbando(ctx):
 async def oof(ctx):
     await ctx.send('https://tenor.com/view/roblox-fortnite-dance-default-memes-cool-gif-12661768')
 
-def protection(message):
-    if 'import' in message:
-        return [True, 'import']
-    elif 'while' in message:
-        return [True, 'while']
-    else:
-        return [False]
-
 @client.command()
 async def hentai(ctx, *, message):
     await ctx.send(f"https://nhentai.to/g/{message}")
