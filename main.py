@@ -40,16 +40,16 @@ async def on_ready():
 #         await message.delete()
 #     await client.process_commands(message)
 
-@client.event
-async def on_message(message):
-    channel = client.get_channel(823521240156340274)
-    zbior = client.get_channel(763447893913763840)
-    if str(message.channel.id) != '823521240156340274':
-        await channel.send(f"{message.author}: {message.content}")
-    elif str(message.author.id) != '790211729443127307':
-        await message.delete()
-        await zbior.send(f"ToXic: {message.content}")
-    await client.process_commands(message)
+# @client.event
+# async def on_message(message):
+#     channel = client.get_channel(823521240156340274)
+#     zbior = client.get_channel(763447893913763840)
+#     if str(message.channel.id) != '823521240156340274':
+#         await channel.send(f"{message.author}: {message.content}")
+#     elif str(message.author.id) != '790211729443127307':
+#         await message.delete()
+#         await zbior.send(f"ToXic: {message.content}")
+#     await client.process_commands(message)
 
 @client.command(aliases=['zbiór']) #inside joke command
 async def zbior(ctx):
