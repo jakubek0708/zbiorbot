@@ -54,7 +54,7 @@ async def zbior(ctx):
     print(ctx)
     zbiory = ['zbior', 'zbiot', 'zboir', 'zboit','zboier','zboitr']
     await ctx.send(random.choice(zbiory))
-    await ctx.send(file=discord.File('/opt/zbiorbot/zbior.png'))
+    await ctx.send(file=discord.File('zbior.png'))
 
 @client.command()
 async def ping(ctx): #ping command
@@ -109,12 +109,12 @@ async def say(ctx, *, message):
 @client.command() #inside joke command
 async def anime(ctx):
     await ctx.send('https://media.discordapp.net/attachments/722581350116360332/774297918701830154/image0.gif')
-    await ctx.send(file=discord.File('/opt/zbiorbot/cutesmoooth.mp4'))
+    await ctx.send(file=discord.File('cutesmoooth.mp4'))
     await test.testmodule(ctx)
 
 @client.command(aliases=['JD']) #inside joke
 async def jd(ctx):
-    await ctx.send(file=discord.File('/opt/zbiorbot/jd.png'))
+    await ctx.send(file=discord.File('jd.png'))
 
 @client.command() #command you can ask for something
 async def dylemat(ctx, *, message):
@@ -134,13 +134,23 @@ async def ip(ctx):
 
 @client.command() #command made for my friend it displays legoshis photos (gave me nightmares)
 async def husbando(ctx):
-  liczba = random.randint(1, 10)
-  photo=f"/opt/zbiorbot/legoshiphotots/tadek{liczba}.jpg"
-  await ctx.send(file=discord.File(photo))
+  filename_list = [filename for filename in os.listdir('./legoshipics')]
+  await ctx.send(file=discord.File(f'legoshipics/{random.choice(filename_list)}'))
 
 @client.command()
 async def husbandoadd(ctx):
-    await ctx.send(ctx.message.attachments)
+    for attachment in ctx.message.attachments:
+        await attachment.save(f'legoshipics/{attachment.filename}')
+
+@client.command()
+async def husbando2add(ctx):
+    for attachment in ctx.message.attachments:
+        await attachment.save(f'jackpics/{attachment.filename}')
+
+@client.command()
+async def husbando2(ctx):
+    filename_list = [filename for filename in os.listdir('./jackpics')]
+    await ctx.send(file=discord.File(f'jackpics/{random.choice(filename_list)}'))
 
 @client.command(aliases=['tymek']) #made for my friend
 async def oof(ctx):
