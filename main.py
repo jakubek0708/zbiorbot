@@ -116,6 +116,12 @@ async def anime(ctx):
 async def jd(ctx):
     await ctx.send(file=discord.File('jd.png'))
 
+@client.command()
+async def roletest(ctx):
+    await ctx.send(ctx.message.content)
+    
+
+
 @client.command() #command you can ask for something
 async def dylemat(ctx, *, message):
   #no_yes[0] == no answers, no_yes[1] == yes answers
