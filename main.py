@@ -119,7 +119,7 @@ async def jd(ctx):
 @client.command()
 async def roletest(ctx):
     await ctx.send(ctx.message.content)
-    
+    print(ctx.message.content)
 
 
 @client.command() #command you can ask for something
