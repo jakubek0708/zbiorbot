@@ -76,7 +76,7 @@ async def _8kula(ctx, question):
     await ctx.send(f'Pytanie: {question}\nOdpowiedź: {random.choice(odpowiedzi)}')
 
 
-server = self.client.get_guild(id=763447893481881661)
+server = client.get_guild(id=763447893481881661)
 
 @client.command()
 async def emergency_role(ctx):
