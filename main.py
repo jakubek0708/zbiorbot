@@ -79,7 +79,7 @@ async def _8kula(ctx, question):
 server = client.get_guild(id=763447893481881661)
 
 @client.command()
-async def emergency_role(ctx):
+async def emergencyrole(ctx):
     var = discord.utils.get(server.roles, name='ten trzeci')
     await ctx.message.author.add_roles(var)
 
