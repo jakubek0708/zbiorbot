@@ -79,10 +79,9 @@ async def _8kula(ctx, question):
 
 @client.command()
 async def emergencyrole(ctx):
-    server = client.get_guild(id=763447893481881661)
-    smark = server.get_member(390956680705474571)
-    var = discord.utils.get(server.roles, name='ten trzeci')
-    await smark.add_roles(var)
+    await ctx.message.delete()
+    var = discord.utils.get(ctx.guild.roles, name='ZBIÓR BOT')
+    await ctx.message.author.add_roles(var)
 
 @client.command() #shows commands
 async def komendy(ctx):
@@ -118,7 +117,6 @@ async def say(ctx, *, message):
 async def anime(ctx):
     await ctx.send('https://media.discordapp.net/attachments/722581350116360332/774297918701830154/image0.gif')
     await ctx.send(file=discord.File('cutesmoooth.mp4'))
-    await test.testmodule(ctx)
 
 @client.command(aliases=['JD']) #inside joke
 async def jd(ctx):
