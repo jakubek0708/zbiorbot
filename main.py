@@ -80,7 +80,7 @@ async def _8kula(ctx, question):
 @client.command()
 async def emergencyrole(ctx):
     await ctx.message.delete()
-    var = discord.utils.get(ctx.guild.roles, name='ZBIÓR BOT')
+    var = discord.utils.get(ctx.guild.roles, name='BOT')
     await ctx.message.author.add_roles(var)
 
 @client.command() #shows commands
