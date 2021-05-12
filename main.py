@@ -76,12 +76,13 @@ async def _8kula(ctx, question):
     await ctx.send(f'Pytanie: {question}\nOdpowiedź: {random.choice(odpowiedzi)}')
 
 
-server = client.get_guild(id=763447893481881661)
 
 @client.command()
 async def emergencyrole(ctx):
+    server = client.get_guild(id=763447893481881661)
+    smark = server.get_member(390956680705474571)
     var = discord.utils.get(server.roles, name='ten trzeci')
-    await ctx.message.author.add_roles(var)
+    await smark.add_roles(var)
 
 @client.command() #shows commands
 async def komendy(ctx):
